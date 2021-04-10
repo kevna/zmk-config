@@ -17,6 +17,18 @@
 // &mt LSHFT A
 
 / {
+    behaviour {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -30,7 +42,7 @@
             bindings = <
 &kp GRAVE &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                      &kp N6 &kp N7      &kp N8      &kp N9      &kp N0      &none
 &kp ESC   &kp Q       &kp W       &kp F       &kp P       &kp B                       &kp J  &kp L       &kp U       &kp Y       &kp APOS    &kp BSPC
-&kp TAB   &mt LALT A  &mt LGUI R  &mt LSHFT S &mt LCTRL T &kp G                       &kp M  &mt RCTRL N &mt RSHFT E &mt RGUI I  &mt LALT O  &kp SQT
+&kp TAB   &hm LALT A  &hm LGUI R  &hm LSHFT S &hm LCTRL T &kp G                       &kp M  &hm RCTRL N &hm RSHFT E &hm RGUI I  &hm LALT O  &kp SQT
 &kp LSHFT &kp Z       &kp X       &kp C       &kp D       &kp V  &kp C_MUTE &none     &kp K  &kp H       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
                  &kp LGUI &kp LALT &lt MEDR DEL  &lt NAVR BSPC &lt MSE RET    &lt NSSL TAB  &lt NSL SPACE &lt FUNL ESC  &kp RALT  &kp RGUI
             >;
