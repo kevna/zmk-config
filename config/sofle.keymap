@@ -39,9 +39,23 @@
         };
 
         MEDR {
+            bindings = <
+&trans &trans &trans &trans &trans &trans                    &trans   &trans     &trans       &trans       &trans     &trans
+&trans &trans &trans &trans &trans &trans                    &trans   &trans     &trans       &trans       &trans     &trans
+&trans &trans &trans &trans &trans &trans                    &trans   &kp K_PREV &kp K_VOL_DN &kp K_VOL_UP &kp K_NEXT &trans
+&trans &trans &trans &trans &trans &trans &trans &trans      &trans   &trans     &trans       &trans       &trans     &trans
+              &trans &trans &trans &trans &trans &kp K_STOP2 &kp K_PP &kp K_MUTE &trans       &trans
+            >;
         };
 
         NAVR {
+            bindings = <
+&trans &trans &trans &trans &trans &trans               &trans     &trans      &trans     &trans    &trans     &trans
+&trans &trans &trans &trans &trans &trans               &kp K_REDO &kp K_PASTE &kp K_COPY &kp K_CUT &kp K_UNDO &trans
+&trans &trans &trans &trans &trans &trans               &kp INS    &kp LEFT    &kp DOWN   &kp UP    &kp DOWN   &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &kp CAPS   &kp HOME    &kp PG_DN  &kp PG_UP &kp END    &trans
+              &trans &trans &trans &trans &trans &trans &trans     &trans      &trans     &trans
+            >;
         };
 
         MSE {
