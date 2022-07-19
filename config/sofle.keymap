@@ -18,14 +18,25 @@
 
 / {
     behaviour {
-        hm: homerow_mods {
+        hl: homerow_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
+            label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <400>;
+            quick_tap_ms = <200>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 43 44 45 46 47 48 49>;
+        };
+        hr: homerow_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick_tap_ms = <200>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42>;
         };
     };
 
@@ -42,7 +53,7 @@
             bindings = <
 &kp GRAVE &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                      &kp N6 &kp N7      &kp N8      &kp N9      &kp N0      &none
 &kp ESC   &kp Q       &kp W       &kp F       &kp P       &kp B                       &kp J  &kp L       &kp U       &kp Y       &kp APOS    &kp BSPC
-&kp TAB   &hm LALT A  &hm LGUI R  &hm LSHFT S &hm LCTRL T &kp G                       &kp M  &hm RCTRL N &hm RSHFT E &hm RGUI I  &hm LALT O  &kp SQT
+&kp TAB   &hl LALT A  &hl LGUI R  &hl LSHFT S &hl LCTRL T &kp G                       &kp M  &hr RCTRL N &hr RSHFT E &hr RGUI I  &hr LALT O  &kp SQT
 &kp LSHFT &kp Z       &kp X       &kp C       &kp D       &kp V  &kp C_MUTE &none     &kp K  &kp H       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
                  &kp LGUI &kp LALT &lt MEDR ESC  &lt NAVR SPACE &lt MSE TAB    &lt NSSL RET  &lt NSL BSPC &lt FUNL DEL  &kp RALT  &kp RGUI
             >;
