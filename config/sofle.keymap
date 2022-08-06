@@ -17,6 +17,14 @@
 #define FUNL 6
 // &mt LSHFT A
 
+#define MACRO_COMBO(NAME, KEYPOS, LAYERS) \
+  combo_##NAME { \
+    bindings = <&m_##NAME>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+    timeout-ms = <50>; \
+};
+
 / {
     behaviour {
         hm: homerow_mods {
@@ -147,5 +155,108 @@
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
+    };
+
+    macros {
+        ZMK_MACRO(m_im,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp LS(I)>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp APOS  &kp M  &kp SPACE>;
+        )
+        ZMK_MACRO(m_id,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp LS(I)>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp APOS  &kp D  &kp SPACE>;
+        )
+        ZMK_MACRO(m_ill,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp LS(I)>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp APOS  &kp L  &kp L  &kp SPACE>;
+        )
+        ZMK_MACRO(m_ive,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp LS(I)>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp APOS  &kp V  &kp E  &kp SPACE>;
+        )
+        ZMK_MACRO(m_wed,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp W>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp E  &kp APOS  &kp D  &kp SPACE>;
+        )
+        ZMK_MACRO(m_well,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp W>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp E  &kp APOS  &kp L  &kp L  &kp SPACE>;
+        )
+        ZMK_MACRO(m_weve,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp W>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp E  &kp APOS  &kp V  &kp E  &kp SPACE>;
+        )
+        ZMK_MACRO(m_were,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp W>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp E  &kp APOS  &kp R  &kp E  &kp SPACE>;
+        )
+        ZMK_MACRO(m_youd,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp Y>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp O  &kp U  &kp APOS  &kp D  &kp SPACE>;
+        )
+        ZMK_MACRO(m_youll,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp Y>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp O  &kp U  &kp APOS  &kp L  &kp L  &kp SPACE>;
+        )
+        ZMK_MACRO(m_youve,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp Y>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp O  &kp U  &kp APOS  &kp V  &kp E  &kp SPACE>;
+        )
+        ZMK_MACRO(m_youre,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp Y>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp O  &kp U  &kp APOS  &kp R  &kp E  &kp SPACE>;
+        )
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        MACRO_COMBO(im, 33 30, 0) // "I'm "
+        MACRO_COMBO(id, 33 40, 0) // "I'd "
+        MACRO_COMBO(ill, 33 19, 0) // "I'll "
+        MACRO_COMBO(ive, 33 41, 0) // "I've "
+        MACRO_COMBO(wed, 14 40, 0) // "we'd "
+        MACRO_COMBO(well, 14 19, 0) // "we'll "
+        MACRO_COMBO(weve, 14 41, 0) // "we've "
+        MACRO_COMBO(were, 14 26, 0) // "we're "
+        MACRO_COMBO(youd, 21 40, 0) // "you'd "
+        MACRO_COMBO(youll, 21 19, 0) // "you'll "
+        MACRO_COMBO(youve, 21 41, 0) // "you've "
+        MACRO_COMBO(youre, 21 26, 0) // "you're "
     };
 };
