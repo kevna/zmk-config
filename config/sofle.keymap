@@ -39,6 +39,16 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        qu: qu {
+            compatible = "zmk,behavior-hold-tap";
+            label = "qu";
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <125>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&m_qu>;
+            hold-trigger-key-positions = <>;
+        };
     };
 
     keymap {
@@ -53,7 +63,7 @@
 //             50 | GUI | ALT | CTRL|LOWER|ENTER| 54  55 |SPACE|RAISE| CTRL| ALT | GUI | 59
             bindings = <
 &kp GRAVE &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                      &kp N6 &kp N7      &kp N8      &kp N9      &kp N0      &none
-&kp ESC   &kp Q       &kp W       &kp F       &kp P       &kp B                       &kp J  &kp L       &kp U       &kp Y       &kp APOS    &kp BSPC
+&kp ESC   &qu Q &m_qu &kp W       &kp F       &kp P       &kp B                       &kp J  &kp L       &kp U       &kp Y       &kp APOS    &kp BSPC
 &kp TAB   &hm LALT A  &hm LGUI R  &hm LSHFT S &hm LCTRL T &kp G                       &kp M  &hm RCTRL N &hm RSHFT E &hm RGUI I  &hm LALT O  &kp SQT
 &kp LSHFT &kp Z       &kp X       &kp C       &kp D       &kp V  &kp C_MUTE &none     &kp K  &kp H       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
                  &kp LGUI &kp LALT &lt MEDR ESC  &lt NAVR SPACE &lt MSE TAB    &lt NSSL RET  &lt NSL BSPC &lt FUNL DEL  &kp RALT  &kp RGUI
@@ -158,6 +168,16 @@
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
+    };
+
+    macros {
+        ZMK_MACRO(m_qu,
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp Q>
+            , <&macro_release  &kp LSHFT  &kp RSHFT>
+            , <&macro_tap  &kp U>;
+        )
     };
 
     combos {
