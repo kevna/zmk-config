@@ -1,0 +1,66 @@
+behaviour {
+  qu: qu {
+    compatible = "zmk,behavior-hold-tap";
+    label = "qu";
+    #binding-cells = <2>;
+    tapping-term-ms = <175>;
+    quick-tap-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&m_qu>;
+    hold-trigger-key-positions = <>;
+  };
+  par: par {
+    compatible = "zmk,behavior-hold-tap";
+    label = "qu";
+    #binding-cells = <2>;
+    tapping-term-ms = <175>;
+    quick-tap-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&m_par>, <&kp>;
+    hold-trigger-key-positions = <>;
+  };
+  bkt: bkt {
+    compatible = "zmk,behavior-hold-tap";
+    label = "qu";
+    #binding-cells = <2>;
+    tapping-term-ms = <175>;
+    quick-tap-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&m_bkt>, <&kp>;
+    hold-trigger-key-positions = <>;
+  };
+  brc: brc {
+    compatible = "zmk,behavior-hold-tap";
+    label = "qu";
+    #binding-cells = <2>;
+    tapping-term-ms = <175>;
+    quick-tap-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&m_brc>, <&kp>;
+    hold-trigger-key-positions = <>;
+  };
+};
+macros {
+  ZMK_MACRO(m_qu,
+    tap-ms = <10>;
+    wait-ms = <10>;
+    bindings = <&kp Q>
+    , <&macro_release  &kp LSHFT  &kp RSHFT>
+    , <&macro_tap  &kp U>;
+  )
+  ZMK_MACRO(m_par,
+    tap-ms = <10>;
+    wait-ms = <10>;
+    bindings = <&kp LPAR  &kp RPAR  &kp LEFT>;
+  )
+  ZMK_MACRO(m_bkt,
+    tap-ms = <10>;
+    wait-ms = <10>;
+    bindings = <&kp LBKT  &kp RBKT  &kp LEFT>;
+  )
+  ZMK_MACRO(m_brc,
+    tap-ms = <10>;
+    wait-ms = <10>;
+    bindings = <&kp LBRC  &kp RBRC  &kp LEFT>;
+  )
+};
