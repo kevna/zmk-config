@@ -39,6 +39,30 @@ behaviour {
     bindings = <&m_brc>, <&kp>;
     hold-trigger-key-positions = <>;
   };
+  less: less {
+    compatible = "zmk,behavior-hold-tap";
+    label = "less";
+    #binding-cells = <2>;
+    tapping-term-ms = <175>;
+    quick-tap-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&m_lt>, <&kp>;
+    hold-trigger-key-positions = <>;
+  };
+  mm_comma: mm_comma {
+    compatible = "zmk,behavior-mod-morph";
+    label = "mm_comma";
+    #binding-cells = <0>;
+    bindings = <&kp COMMA>, <&less &m_lt LT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+  mm_dot: mm_dot {
+    compatible = "zmk,behavior-mod-morph";
+    label = "mm_dot";
+    #binding-cells = <0>;
+    bindings = <&kp DOT>, <&less &m_lt GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
 };
 macros {
   ZMK_MACRO(m_qu,
@@ -62,5 +86,10 @@ macros {
     tap-ms = <10>;
     wait-ms = <10>;
     bindings = <&kp LBRC  &kp RBRC  &kp LEFT>;
+  )
+  ZMK_MACRO(m_lt,
+    tap-ms = <10>;
+    wait-ms = <10>;
+    bindings = <&kp LT  &kp GT  &kp LEFT>;
   )
 };
