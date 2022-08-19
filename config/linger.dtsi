@@ -11,7 +11,7 @@ behaviour {
   };
   par: par {
     compatible = "zmk,behavior-hold-tap";
-    label = "qu";
+    label = "parentheses";
     #binding-cells = <2>;
     tapping-term-ms = <175>;
     quick-tap-ms = <125>;
@@ -21,7 +21,7 @@ behaviour {
   };
   bkt: bkt {
     compatible = "zmk,behavior-hold-tap";
-    label = "qu";
+    label = "square_brackets";
     #binding-cells = <2>;
     tapping-term-ms = <175>;
     quick-tap-ms = <125>;
@@ -31,7 +31,7 @@ behaviour {
   };
   brc: brc {
     compatible = "zmk,behavior-hold-tap";
-    label = "qu";
+    label = "braces";
     #binding-cells = <2>;
     tapping-term-ms = <175>;
     quick-tap-ms = <125>;
@@ -41,13 +41,20 @@ behaviour {
   };
   less: less {
     compatible = "zmk,behavior-hold-tap";
-    label = "less";
+    label = "triangular_brackets";
     #binding-cells = <2>;
     tapping-term-ms = <175>;
     quick-tap-ms = <125>;
     flavor = "tap-preferred";
     bindings = <&m_lt>, <&kp>;
     hold-trigger-key-positions = <>;
+  };
+  mm_lbkt: mm_lbkt {
+    compatible = "zmk,behavior-mod-morph";
+    label = "mm_lbkt";
+    #binding-cells = <0>;
+    bindings = <&bkt &m_bkt LBKT>, <&brc &m_brc LBRC>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
   };
   mm_comma: mm_comma {
     compatible = "zmk,behavior-mod-morph";
@@ -85,11 +92,15 @@ macros {
   ZMK_MACRO(m_brc,
     tap-ms = <10>;
     wait-ms = <10>;
-    bindings = <&kp LBRC  &kp RBRC  &kp LEFT>;
+    bindings = <&kp LBRC  &kp RBRC>
+    , <&macro_release  &kp LSHFT  &kp RSHFT>
+    , <&macro_tap  &kp LEFT>;
   )
   ZMK_MACRO(m_lt,
     tap-ms = <10>;
     wait-ms = <10>;
-    bindings = <&kp LT  &kp GT  &kp LEFT>;
+    bindings = <&kp LT  &kp GT>
+    , <&macro_release  &kp LSHFT  &kp RSHFT>
+    , <&macro_tap  &kp LEFT>;
   )
 };
