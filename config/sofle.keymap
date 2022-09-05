@@ -2,6 +2,7 @@
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
+ * vim: filetype=dts:ts=4:sw=4:et
  */
 
 #include <behaviors.dtsi>
