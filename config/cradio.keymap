@@ -4,12 +4,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define DFLT 0
 #define MEDR 1
 #define NAVR 2
-#define MSE  3
-#define NSSL 4
-#define NSL  5
-#define FUNL 6
+#define NSSL 3
+#define NSL  4
+#define FUNL 5
 
 / {
     behaviour {
@@ -27,7 +27,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        DFLT {
 //    -------------------------------------------------------------------------
 //  0 |  Q  |  W  |  F  |  P  |  B  |  4      5 |  J  |  L  |  U  |  Y  |  '  |  9
 // 10 |  A  |  R  |  S  |  T  |  G  | 14     15 |  M  |  N  |  E  |  I  |  O  | 19
@@ -37,7 +37,7 @@
 &kp Q      &kp W      &kp F       &kp P       &kp B           &kp J  &kp L       &kp U       &kp Y       &kp APOS
 &hm LALT A &hm LGUI R &hm LSHFT S &hm LCTRL T &kp G           &kp M  &hm RCTRL N &hm RSHFT E &hm RGUI I  &hm LALT O
 &kp Z      &kp X      &kp C       &kp D       &kp V           &kp K  &kp H       &kp COMMA   &kp DOT     &kp FSLH
-                            &lt NAVR SPACE &lt MSE TAB     &lt NSSL RET  &lt NSL BSPC
+                           &lt NAVR SPACE &lt MEDR TAB     &lt NSSL RET  &lt NSL BSPC
             >;
         };
 
@@ -58,13 +58,6 @@
                      &trans &trans       &trans     &trans
             >;
         };
-
-        /*
-        MSE {
-            bindings = <
-            >;
-        };
-        */
 
         NSSL {
             bindings = <
