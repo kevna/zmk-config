@@ -11,7 +11,17 @@
 #define NSL  4
 #define FUNL 5
 
+#define ZMK_COMBO(NAME, BINDING, KEYPOS, LAYERS) \
+  combo_##NAME { \
+    bindings = <BINDING>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+    timeout-ms = <50>; \
+};
+
 / {
+    #include "hd_combo_macros.dtsi"
+
     behaviour {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -91,27 +101,23 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
-            bindings = <&kp ESC>;
-            key-positions = <30 31>;
-            layers = <DFLT>;
-            timeout-ms = <50>;
-        };
+        ZMK_COMBO(esc, &kp ESC, 30 31, DFLT)
+        // ZMK_COMBO(minus, &kp MINUS, 30 31, NSL)
+        ZMK_COMBO(under, &kp UNDER, 30 31, NSSL)
 
-        /*
-        combo_minus {
-            bindings = <&kp MINUS>;
-            key-positions = <30 31>;
-            layers = <NSL>;
-            timeout-ms = <50>;
-        };
-        */
+        ZMK_COMBO(caps, &caps_word, 12 17, DFLT)
 
-        combo_under {
-            bindings = <&kp UNDER>;
-            key-positions = <30 31>;
-            layers = <NSSL>;
-            timeout-ms = <50>;
-        };
+        ZMK_COMBO(im, &m_im, 18 15, DFLT) // "I'm "
+        ZMK_COMBO(id, &m_id, 18 23, DFLT) // "I'd "
+        ZMK_COMBO(ill, &m_ill, 18 6, DFLT) // "I'll "
+        ZMK_COMBO(ive, &m_ive, 18 24, DFLT) // "I've "
+        ZMK_COMBO(wed, &m_wed, 1 23, DFLT) // "we'd "
+        ZMK_COMBO(well, &m_well, 1 6, DFLT) // "we'll "
+        ZMK_COMBO(weve, &m_weve, 1 24, DFLT) // "we've "
+        ZMK_COMBO(were, &m_were, 1 11, DFLT) // "we're "
+        ZMK_COMBO(youd, &m_youd, 8 23, DFLT) // "you'd "
+        ZMK_COMBO(youll, &m_youll, 8 6, DFLT) // "you'll "
+        ZMK_COMBO(youve, &m_youve, 8 24, DFLT) // "you've "
+        ZMK_COMBO(youre, &m_youre, 8 11, DFLT) // "you're "
     };
 };
