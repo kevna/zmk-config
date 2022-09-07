@@ -1,87 +1,66 @@
 // vim: filetype=dts:ts=4:sw=4:et
+
+#define USHFT &macro_release &kp LSHFT &kp RSHFT &macro_tap
+
 macros {
     ZMK_MACRO(m_im,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp LS(I)>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp APOS  &kp M  &kp SPACE>;
+        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp M  &kp SPACE>;
     )
     ZMK_MACRO(m_id,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp LS(I)>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp APOS  &kp D  &kp SPACE>;
+        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp D  &kp SPACE>;
     )
     ZMK_MACRO(m_ill,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp LS(I)>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp APOS  &kp L  &kp L  &kp SPACE>;
+        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp L  &kp L  &kp SPACE>;
     )
     ZMK_MACRO(m_ive,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp LS(I)>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp APOS  &kp V  &kp E  &kp SPACE>;
+        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp V  &kp E  &kp SPACE>;
     )
     ZMK_MACRO(m_wed,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp W>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp E  &kp APOS  &kp D  &kp SPACE>;
+        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp D  &kp SPACE>;
     )
     ZMK_MACRO(m_well,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp W>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp E  &kp APOS  &kp L  &kp L  &kp SPACE>;
+        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp L  &kp L  &kp SPACE>;
     )
     ZMK_MACRO(m_weve,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp W>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp E  &kp APOS  &kp V  &kp E  &kp SPACE>;
+        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp V  &kp E  &kp SPACE>;
     )
     ZMK_MACRO(m_were,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp W>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp E  &kp APOS  &kp R  &kp E  &kp SPACE>;
+        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp R  &kp E  &kp SPACE>;
     )
     ZMK_MACRO(m_youd,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp Y>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp O  &kp U  &kp APOS  &kp D  &kp SPACE>;
+        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp D  &kp SPACE>;
     )
     ZMK_MACRO(m_youll,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp Y>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp O  &kp U  &kp APOS  &kp L  &kp L  &kp SPACE>;
+        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp L  &kp L  &kp SPACE>;
     )
     ZMK_MACRO(m_youve,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp Y>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp O  &kp U  &kp APOS  &kp V  &kp E  &kp SPACE>;
+        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp V  &kp E  &kp SPACE>;
     )
     ZMK_MACRO(m_youre,
         tap-ms = <10>;
         wait-ms = <10>;
-        bindings = <&kp Y>
-        , <&macro_release  &kp LSHFT  &kp RSHFT>
-        , <&macro_tap  &kp O  &kp U  &kp APOS  &kp R  &kp E  &kp SPACE>;
+        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp R  &kp E  &kp SPACE>;
     )
 };
