@@ -97,5 +97,21 @@
             layers = <DFLT>;
             timeout-ms = <50>;
         };
+
+        /*
+        combo_minus {
+            bindings = <&kp MINUS>;
+            key-positions = <30 31>;
+            layers = <NSL>;
+            timeout-ms = <50>;
+        };
+        */
+
+        combo_under {
+            bindings = <&kp UNDER>;
+            key-positions = <30 31>;
+            layers = <NSSL>;
+            timeout-ms = <50>;
+        };
     };
 };
