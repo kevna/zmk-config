@@ -111,6 +111,7 @@
         ZMK_COMBO(under, &kp UNDER, 30 31, NSSL)
 
         ZMK_COMBO(caps, &caps_word, 12 17, DFLT)
+        ZMK_COMBO(boot, &bootloader, 0 4 20 24, DFLT)
 
         ZMK_COMBO(im, &m_im, 18 15, DFLT) // "I'm "
         ZMK_COMBO(id, &m_id, 18 23, DFLT) // "I'd "
