@@ -19,6 +19,11 @@
     timeout-ms = <50>; \
 };
 
+&caps_word {
+    // Defaults plus APOS keeps caps on for contractions
+    continue-list = <UNDER APOS BSPC DEL>;
+};
+
 / {
     #include "hd_combo_macros.dtsi"
 
