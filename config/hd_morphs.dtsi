@@ -1,0 +1,27 @@
+// vim: ts=4:sw=4:et
+
+#define MACRO_MORPH(NAME, UNMOD, MOD, MODS) \
+mm_##NAME: mm_##NAME { \
+    compatible = "zmk,behavior-mod-morph"; \
+    label = #NAME; \
+    #binding-cells = <0>; \
+    bindings = <UNMOD>, <MOD>; \
+    mods = <(MODS)>; \
+};
+
+behaviour {
+    MACRO_MORPH(slash, &kp FSLH, &kp STAR, MOD_LSFT|MOD_RSFT)
+
+    MACRO_MORPH(apars, &kp LPAR, &kp RPAR, MOD_LALT)
+    MACRO_MORPH(atrig, &kp LT, &kp GT, MOD_LALT)
+    MACRO_MORPH(abrcs, &kp LBRC, &kp RBRC, MOD_LALT)
+    MACRO_MORPH(abkts, &kp LBKT, &kp RBKT, MOD_LALT)
+    MACRO_MORPH(par, &mm_apars, &mm_atrig, MOD_LSFT|MOD_RSFT)
+    MACRO_MORPH(brc, &mm_abrcs, &mm_abkts, MOD_LSFT|MOD_RSFT)
+
+    MACRO_MORPH(sqt, &kp APOS, &kp EXCL, MOD_LSFT|MOD_RSFT)
+    MACRO_MORPH(dqt, &kp AT, &kp QMARK, MOD_LSFT|MOD_RSFT)
+    MACRO_MORPH(minus, &kp MINUS, &kp PLUS, MOD_LSFT|MOD_RSFT)
+    MACRO_MORPH(comma, &kp COMMA, &kp SEMI, MOD_LSFT|MOD_RSFT)
+    MACRO_MORPH(dot, &kp DOT, &kp COLON, MOD_LSFT|MOD_RSFT)
+};
