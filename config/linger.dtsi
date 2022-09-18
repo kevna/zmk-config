@@ -1,8 +1,22 @@
-#define L_QU &qu Q &m_qu
-#define L_LPAR &par &m_par LPAR
-#define L_LBKT &bkt &m_bkt LBKT
-#define L_LBRC &brc &m_brc LBRC
-#define L_LT &less &m_lt LT
+#define USHFT &macro_release &kp LSHFT &kp RSHFT &macro_tap
+#define CUSTOM_MACRO(NAME, BINDING) \
+m_##NAME: m_##NAME { \
+    compatible = "zmk,behavior-macro"; \
+    label = "m_##NAME"; \
+    #binding-cells = <0>; \
+    wait-ms = <10>; \
+    tap-ms = <10>; \
+    bindings = <BINDING>; \
+};
+
+macros {
+  CUSTOM_MACRO(qu, &kp Q  USHFT  &kp U)
+  CUSTOM_MACRO(par, &kp LPAR  &kp RPAR  &kp LEFT)
+  CUSTOM_MACRO(bkt, &kp LBKT  &kp RBKT  &kp LEFT)
+  CUSTOM_MACRO(brc, &kp LBRC  &kp RBRC  USHFT  &kp LEFT)
+  CUSTOM_MACRO(lt, &kp LT  &kp GT  USHFT  &kp LEFT)
+};
+
 #define LINGER(NAME, HOLD, TAP) \
 NAME: NAME { \
     compatible = "zmk,behavior-hold-tap"; \
@@ -14,6 +28,19 @@ NAME: NAME { \
     bindings = <HOLD>, <TAP>; \
     hold-trigger-key-positions = <>; \
 };
+#define MACRO_MORPH(NAME, UNMOD, MOD, MODS) \
+mm_##NAME: mm_##NAME { \
+    compatible = "zmk,behavior-mod-morph"; \
+    label = "mm_##NAME"; \
+    #binding-cells = <0>; \
+    bindings = <UNMOD>, <MOD>; \
+    mods = <(MODS)>; \
+};
+#define L_QU &qu Q &m_qu
+#define L_LPAR &par &m_par LPAR
+#define L_LBKT &bkt &m_bkt LBKT
+#define L_LBRC &brc &m_brc LBRC
+#define L_LT &less &m_lt LT
 
 behaviour {
   LINGER(qu, &kp, &m_qu)
@@ -22,59 +49,7 @@ behaviour {
   LINGER(brc, &m_brc, &kp)
   LINGER(less, &m_lt, &kp)
 
-
-  mm_lbkt: mm_lbkt {
-    compatible = "zmk,behavior-mod-morph";
-    label = "mm_lbkt";
-    #binding-cells = <0>;
-    bindings = <L_LBKT>, <L_LBRC>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-  };
-  mm_comma: mm_comma {
-    compatible = "zmk,behavior-mod-morph";
-    label = "mm_comma";
-    #binding-cells = <0>;
-    bindings = <&kp COMMA>, <L_LT>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-  };
-  mm_dot: mm_dot {
-    compatible = "zmk,behavior-mod-morph";
-    label = "mm_dot";
-    #binding-cells = <0>;
-    bindings = <&kp DOT>, <&less &m_lt GT>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-  };
-};
-macros {
-  ZMK_MACRO(m_qu,
-    tap-ms = <10>;
-    wait-ms = <10>;
-    bindings = <&kp Q>
-    , <&macro_release  &kp LSHFT  &kp RSHFT>
-    , <&macro_tap  &kp U>;
-  )
-  ZMK_MACRO(m_par,
-    tap-ms = <10>;
-    wait-ms = <10>;
-    bindings = <&kp LPAR  &kp RPAR  &kp LEFT>;
-  )
-  ZMK_MACRO(m_bkt,
-    tap-ms = <10>;
-    wait-ms = <10>;
-    bindings = <&kp LBKT  &kp RBKT  &kp LEFT>;
-  )
-  ZMK_MACRO(m_brc,
-    tap-ms = <10>;
-    wait-ms = <10>;
-    bindings = <&kp LBRC  &kp RBRC>
-    , <&macro_release  &kp LSHFT  &kp RSHFT>
-    , <&macro_tap  &kp LEFT>;
-  )
-  ZMK_MACRO(m_lt,
-    tap-ms = <10>;
-    wait-ms = <10>;
-    bindings = <&kp LT  &kp GT>
-    , <&macro_release  &kp LSHFT  &kp RSHFT>
-    , <&macro_tap  &kp LEFT>;
-  )
+  MACRO_MORPH(lbkt, L_LBKT, L_LBRC, MOD_LSFT|MOD_RSFT)
+  MACRO_MORPH(comma, &kp COMMA, L_LT, MOD_LSFT|MOD_RSFT)
+  MACRO_MORPH(dot, &kp DOT, &less &m_lt GT, MOD_LSFT|MOD_RSFT)
 };
