@@ -3,58 +3,24 @@
 #define L_LBKT &bkt &m_bkt LBKT
 #define L_LBRC &brc &m_brc LBRC
 #define L_LT &less &m_lt LT
+#define LINGER(NAME, HOLD, TAP) \
+NAME: NAME { \
+    compatible = "zmk,behavior-hold-tap"; \
+    label = "NAME"; \
+    #binding-cells = <2>; \
+    tapping-term-ms = <175>; \
+    quick-tap-ms = <125>; \
+    flavor = "tap-preferred"; \
+    bindings = <HOLD>, <TAP>; \
+    hold-trigger-key-positions = <>; \
+};
 
 behaviour {
-  qu: qu {
-    compatible = "zmk,behavior-hold-tap";
-    label = "qu";
-    #binding-cells = <2>;
-    tapping-term-ms = <175>;
-    quick-tap-ms = <125>;
-    flavor = "tap-preferred";
-    bindings = <&kp>, <&m_qu>;
-    hold-trigger-key-positions = <>;
-  };
-  par: par {
-    compatible = "zmk,behavior-hold-tap";
-    label = "parentheses";
-    #binding-cells = <2>;
-    tapping-term-ms = <175>;
-    quick-tap-ms = <125>;
-    flavor = "tap-preferred";
-    bindings = <&m_par>, <&kp>;
-    hold-trigger-key-positions = <>;
-  };
-  bkt: bkt {
-    compatible = "zmk,behavior-hold-tap";
-    label = "square_brackets";
-    #binding-cells = <2>;
-    tapping-term-ms = <175>;
-    quick-tap-ms = <125>;
-    flavor = "tap-preferred";
-    bindings = <&m_bkt>, <&kp>;
-    hold-trigger-key-positions = <>;
-  };
-  brc: brc {
-    compatible = "zmk,behavior-hold-tap";
-    label = "braces";
-    #binding-cells = <2>;
-    tapping-term-ms = <175>;
-    quick-tap-ms = <125>;
-    flavor = "tap-preferred";
-    bindings = <&m_brc>, <&kp>;
-    hold-trigger-key-positions = <>;
-  };
-  less: less {
-    compatible = "zmk,behavior-hold-tap";
-    label = "triangular_brackets";
-    #binding-cells = <2>;
-    tapping-term-ms = <175>;
-    quick-tap-ms = <125>;
-    flavor = "tap-preferred";
-    bindings = <&m_lt>, <&kp>;
-    hold-trigger-key-positions = <>;
-  };
+  LINGER(qu, &kp, &m_qu)
+  LINGER(par, &m_par, &kp)
+  LINGER(bkt, &m_bkt, &kp)
+  LINGER(brc, &m_brc, &kp)
+  LINGER(less, &m_lt, &kp)
 
 
   mm_lbkt: mm_lbkt {
