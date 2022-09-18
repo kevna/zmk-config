@@ -1,114 +1,42 @@
 // vim: filetype=dts:ts=4:sw=4:et
 
 #define USHFT &macro_release &kp LSHFT &kp RSHFT &macro_tap
+#define CUSTOM_MACRO(NAME, BINDING) \
+m_##NAME: m_##NAME { \
+    compatible = "zmk,behavior-macro"; \
+    label = "m_##NAME"; \
+    #binding-cells = <0>; \
+    wait-ms = <10>; \
+    tap-ms = <10>; \
+    bindings = <BINDING>; \
+};
 
 macros {
     // Pronoun combos
-    ZMK_MACRO(m_im,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp M  &kp SPACE>;
-    )
-    ZMK_MACRO(m_id,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp D  &kp SPACE>;
-    )
-    ZMK_MACRO(m_ill,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp L  &kp L  &kp SPACE>;
-    )
-    ZMK_MACRO(m_ive,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp LS(I)  USHFT  &kp APOS  &kp V  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_wed,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp D  &kp SPACE>;
-    )
-    ZMK_MACRO(m_well,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp L  &kp L  &kp SPACE>;
-    )
-    ZMK_MACRO(m_weve,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp V  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_were,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp W  USHFT  &kp E  &kp APOS  &kp R  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_youd,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp D  &kp SPACE>;
-    )
-    ZMK_MACRO(m_youll,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp L  &kp L  &kp SPACE>;
-    )
-    ZMK_MACRO(m_youve,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp V  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_youre,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp R  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_they,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp Y  &kp SPACE>;
-    )
-    ZMK_MACRO(m_their,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp I  &kp R  &kp SPACE>;
-    )
-    ZMK_MACRO(m_theyd,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp D  &kp SPACE>;
-    )
-    ZMK_MACRO(m_theyll,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp L  &kp L  &kp SPACE>;
-    )
-    ZMK_MACRO(m_theyve,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp V  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_theyre,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp R  &kp E  &kp SPACE>;
-    )
+    CUSTOM_MACRO(im, &kp LS(I)  USHFT  &kp APOS  &kp M  &kp SPACE)
+    CUSTOM_MACRO(id, &kp LS(I)  USHFT  &kp APOS  &kp D  &kp SPACE)
+    CUSTOM_MACRO(ill, &kp LS(I)  USHFT  &kp APOS  &kp L  &kp L  &kp SPACE)
+    CUSTOM_MACRO(ive, &kp LS(I)  USHFT  &kp APOS  &kp V  &kp E  &kp SPACE)
+
+    CUSTOM_MACRO(wed, &kp W  USHFT  &kp E  &kp APOS  &kp D  &kp SPACE)
+    CUSTOM_MACRO(well, &kp W  USHFT  &kp E  &kp APOS  &kp L  &kp L  &kp SPACE)
+    CUSTOM_MACRO(weve, &kp W  USHFT  &kp E  &kp APOS  &kp V  &kp E  &kp SPACE)
+    CUSTOM_MACRO(were, &kp W  USHFT  &kp E  &kp APOS  &kp R  &kp E  &kp SPACE)
+
+    CUSTOM_MACRO(youd, &kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp D  &kp SPACE)
+    CUSTOM_MACRO(youll, &kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp L  &kp L  &kp SPACE)
+    CUSTOM_MACRO(youve, &kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp V  &kp E  &kp SPACE)
+    CUSTOM_MACRO(youre, &kp Y  USHFT  &kp O  &kp U  &kp APOS  &kp R  &kp E  &kp SPACE)
+
+    CUSTOM_MACRO(they, &kp T  USHFT  &kp H  &kp E  &kp Y  &kp SPACE)
+    CUSTOM_MACRO(their, &kp T  USHFT  &kp H  &kp E  &kp I  &kp R  &kp SPACE)
+    CUSTOM_MACRO(theyd, &kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp D  &kp SPACE)
+    CUSTOM_MACRO(theyll, &kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp L  &kp L  &kp SPACE)
+    CUSTOM_MACRO(theyve, &kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp V  &kp E  &kp SPACE)
+    CUSTOM_MACRO(theyre, &kp T  USHFT  &kp H  &kp E  &kp Y  &kp APOS  &kp R  &kp E  &kp SPACE)
 
     // Locations
-    ZMK_MACRO(m_there,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp T  USHFT  &kp H  &kp E  &kp R  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_where,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp W  USHFT  &kp H  &kp E  &kp R  &kp E  &kp SPACE>;
-    )
-    ZMK_MACRO(m_here,
-        tap-ms = <10>;
-        wait-ms = <10>;
-        bindings = <&kp H  USHFT  &kp E  &kp R  &kp E  &kp SPACE>;
-    )
+    CUSTOM_MACRO(there, &kp T  USHFT  &kp H  &kp E  &kp R  &kp E  &kp SPACE)
+    CUSTOM_MACRO(where, &kp W  USHFT  &kp H  &kp E  &kp R  &kp E  &kp SPACE)
+    CUSTOM_MACRO(here, &kp H  USHFT  &kp E  &kp R  &kp E  &kp SPACE)
 };
