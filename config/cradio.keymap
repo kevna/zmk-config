@@ -43,8 +43,8 @@
 #define ELAN_C &hm RGUI C
 #define ELAN_I &hm LALT I
 
-#define ELAN_COM &lt NAVR &mm_comma
-#define ELAN_DOT &lt MEDR &mm_dot
+#define ELAN_COM &mm_comma
+#define ELAN_DOT &mm_dot
 #define ELAN_SPC &lt NSSL SPACE
 #define ELAN_RET &lt NSL RET
 
