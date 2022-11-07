@@ -26,9 +26,9 @@ jobs:
             name: sweep
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Cache west modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-zephyr-modules
         with:
@@ -54,7 +54,7 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 ${{ matrix.shield }}_${{ matrix.board }}.uf2
       - name: Archive (${{ matrix.shield }})
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.name }}-firmware
           path: ${{ matrix.shield }}_${{ matrix.board }}.uf2
