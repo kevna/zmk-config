@@ -145,12 +145,12 @@ ELAN_R ELAN_S ELAN_N ELAN_T &kp F          &kp J     ELAN_A  ELAN_E  ELAN_C  ELA
     combos {
         compatible = "zmk,combos";
 
-        ZMK_COMBO(esc, &kp ESC, 30 31, CLMK)
+        ZMK_COMBO(esc, &kp ESC, 30 31, CLMK ELAN)
         // ZMK_COMBO(minus, &kp MINUS, 30 31, NSL)
         ZMK_COMBO(under, &kp UNDER, 30 31, NSSL)
 
-        ZMK_COMBO(caps, &caps_word, 12 17, CLMK)
-        ZMK_COMBO(boot, &bootloader, 0 4 20 24, CLMK)
+        ZMK_COMBO(caps, &caps_word, 12 17, CLMK ELAN)
+        ZMK_COMBO(boot, &bootloader, 0 4 20 24, CLMK ELAN)
 
         ZMK_COMBO(im, &m_im, 18 15, CLMK) // IM -> "I'm "
         ZMK_COMBO(id, &m_id, 18 23, CLMK) // ID -> "I'd "
@@ -173,10 +173,6 @@ ELAN_R ELAN_S ELAN_N ELAN_T &kp F          &kp J     ELAN_A  ELAN_E  ELAN_C  ELA
         ZMK_COMBO(there, &m_there, 13 17, CLMK) // TE -> "there "
         ZMK_COMBO(where, &m_where, 1 17, CLMK) // WE -> "where "
         ZMK_COMBO(here, &m_here, 26 17, CLMK) // HE -> "here "
-
-        ZMK_COMBO(elan_esc, &kp ESC, 30 31, ELAN)
-        ZMK_COMBO(elan_caps, &caps_word, 12 17, ELAN)
-        ZMK_COMBO(elan_boot, &bootloader, 0 4 20 24, ELAN)
 
         ZMK_COMBO(vg, &kp Z, 0 1, ELAN) // VG -> Z
         ZMK_COMBO(pk, &kp Q, 3 4, ELAN) // PK -> Q
