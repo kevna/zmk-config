@@ -12,10 +12,10 @@ mm_##NAME: mm_##NAME { \
 behaviour {
     MACRO_MORPH(slash, &kp FSLH, &kp STAR, MOD_LSFT|MOD_RSFT)
 
-    MACRO_MORPH(apars, &kp LPAR, &kp RPAR, MOD_LALT)
-    MACRO_MORPH(atrig, &kp LT, &kp GT, MOD_LALT)
-    MACRO_MORPH(abrcs, &kp LBRC, &kp RBRC, MOD_LALT)
-    MACRO_MORPH(abkts, &kp LBKT, &kp RBKT, MOD_LALT)
+    MACRO_MORPH(apars, L_LPAR, &kp RPAR, MOD_LALT)
+    MACRO_MORPH(atrig, L_LT, &kp GT, MOD_LALT)
+    MACRO_MORPH(abrcs, L_LBRC, &kp RBRC, MOD_LALT)
+    MACRO_MORPH(abkts, L_LBKT, &kp RBKT, MOD_LALT)
     MACRO_MORPH(par, &mm_apars, &mm_atrig, MOD_LSFT|MOD_RSFT)
     MACRO_MORPH(brc, &mm_abrcs, &mm_abkts, MOD_LSFT|MOD_RSFT)
 

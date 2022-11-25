@@ -55,6 +55,7 @@
 
 / {
     #include "hd_combo_macros.dtsi"
+    #include "linger.dtsi"
     #include "hd_morphs.dtsi"
 
     behaviour {
