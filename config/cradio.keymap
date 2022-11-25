@@ -43,10 +43,10 @@
 #define ELAN_C &hm RGUI C
 #define ELAN_I &hm LALT I
 
-#define ELAN_COM &mm_comma
 #define ELAN_DOT &mm_dot
-#define ELAN_SPC &lt NSSL SPACE
-#define ELAN_RET &lt NSL RET
+#define ELAN_COM &mm_comma
+#define ELAN_RET &lt NSSL RET
+#define ELAN_SPC &lt NSL SPACE
 
 &caps_word {
     // Defaults plus APOS keeps caps on for contractions
@@ -91,7 +91,7 @@ CLMK_A CLMK_R CLMK_S CLMK_T &kp G           &kp M  CLMK_N CLMK_E    CLMK_I  CLMK
 &kp V  &kp G  &kp H  &kp P  &kp K          &mm_slash &mm_par &mm_brc &mm_sqt &mm_dqt
 ELAN_R ELAN_S ELAN_N ELAN_T &kp F          &kp J     ELAN_A  ELAN_E  ELAN_C  ELAN_I
 &kp X  &kp M  &kp L  &kp D  &kp B          &mm_minus &kp U   &kp O   &kp W   &kp Y
-                   ELAN_COM ELAN_DOT    ELAN_SPC ELAN_RET
+                   ELAN_DOT ELAN_COM    ELAN_RET ELAN_SPC
             >;
         };
 
@@ -109,7 +109,7 @@ ELAN_R ELAN_S ELAN_N ELAN_T &kp F          &kp J     ELAN_A  ELAN_E  ELAN_C  ELA
 &trans &trans &trans   &trans    &trans       &kp K_REDO &kp K_PASTE &kp K_COPY &kp K_CUT &kp K_UNDO
 &trans &trans &trans   &trans    &trans       &kp INS    &kp LEFT    &kp DOWN   &kp UP    &kp RIGHT
 &trans &trans &tog NSL &tog NAVR &trans       &kp CAPS   &kp HOME    &kp PG_DN  &kp PG_UP &kp END
-                       &trans    &trans       &kp BSPC   &kp DEL
+                       &trans    &trans       &kp TAB    &kp BSPC
             >;
         };
 
